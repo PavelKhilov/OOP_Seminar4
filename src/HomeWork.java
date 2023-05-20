@@ -33,19 +33,18 @@ public class HomeWork {
         System.out.println(oranges.weightBox());
 
         System.out.println(apples.compareBox(oranges));
-
         System.out.println(apples.getClass());
 
-//        Box<Apple> apples2 = new Box<>();
-//        apples2.addFruit(new Apple());
-//        System.out.println(apples2.weightBox());
-//
-//        apples2.replaceBox(oranges);
-//        apples2.replaceBox(apples);
-//
-//        System.out.println(apples.weightBox());
-//        System.out.println(oranges.weightBox());
-//        System.out.println(apples2.weightBox());
+        Box<Apple> apples2 = new Box<>();
+        apples2.addFruit(new Apple());
+        System.out.println(apples2.weightBox());
+
+        apples2.replaceBox(oranges);
+        apples2.replaceBox(apples);
+
+        System.out.println(apples.weightBox());
+        System.out.println(oranges.weightBox());
+        System.out.println(apples2.weightBox());
     }
 }
 
@@ -109,16 +108,16 @@ class Box<T extends Fruit>{
         return weightBox() == box2.weightBox();
     }
 
-//    public void replaceBox(Box box2){
-//        if (fruits.getClass() == box2.getClass()){
-//            for (T fruit: fruits) {
-//                box2.addFruit(fruit);
-//                fruits.remove(fruit);
-//            }
-//        } else{
-//            System.out.println("В коробках лежат разные фрукты.");
-//        }
-//    }
+    public void replaceBox(Box box2){
+        if (fruits.getClass().equals(box2.getClass())){
+            for (T fruit: fruits) {
+                box2.addFruit(fruit);
+                fruits.remove(fruit);
+            }
+        } else{
+            System.out.println("В коробках лежат разные фрукты.");
+        }
+    }
 
     @Override
     public String toString() {
